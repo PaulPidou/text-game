@@ -1,9 +1,13 @@
-Interface:
+Classe abstraire :
 
 Displayable
   Attributs:
   - Nom
   - Description
+  
+  Méthode:
+  - Afficher nom
+  - Afficher description
 
 Classes:
 
