@@ -24,12 +24,12 @@ Fighter - hérite de Alive
   - Recevoir dégats
   - Donner dégats / tirer
 
-Hero - hérite de Alive_fight
+Hero - hérite de Fighter
   Méthodes:
   - Ramasser arme
   - Voir inventaire
 
-Monster - hérite de Alive_fight
+Monster - hérite de Fighter
 
 Item - implemente Displayable
   Attributs:
