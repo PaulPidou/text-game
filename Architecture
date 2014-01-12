@@ -6,8 +6,7 @@ Displayable
   - Description
   
   Méthode:
-  - Afficher nom
-  - Afficher description
+  - toString
 
 Classes:
 
