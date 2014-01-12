@@ -16,7 +16,7 @@ Alive - implemente Displayable
   Méthodes:
   - Se déplacer
 
-Alive_fight - hérite de Alive
+Fighter - hérite de Alive
   Attributs:
   - Points de vie
   - Force / dégats de base
