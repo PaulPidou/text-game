@@ -15,12 +15,16 @@ public class Inventory extends Item {
 		return this.size;
 	}
 	
-	public int getPlaceLeft() {
+	public int getPlaceTaken() {
 		int placeTaken = 0;
 		for(Item i : listItems) {
 			placeTaken += i.weight;
 		}
-		return size - placeTaken;
+		return placeTaken;
+	}
+	
+	public int getPlaceLeft() {
+		return size - this.getPlaceTaken();
 	}
 	
 	public boolean isPlaceLeft() {
@@ -38,11 +42,35 @@ public class Inventory extends Item {
 			System.out.println("Not enough place in the inventory !");
 	}
 	
-	public void displayItems() {
-		System.out.println("Inventory :");
-		for(Item i : listItems) {
-			System.out.println(i);
+	public void removeItem(Item item) {
+		this.listItems.remove(item);
+	}
+	
+	public Item indexToItem(int index) {
+		return this.listItems.get(index);
+	}
+	
+	public void transferItems(Inventory inventory) {
+		if(this.getPlaceTaken() <= inventory.size) {
+			for(Item i : listItems) {
+				inventory.addItem(i);
+			}
 		}
+		else
+			System.out.println("The new inventory is too small !");
+	}
+	
+	public void displayItems() {
+		int j = 1;
+		if(!this.listItems.isEmpty()) {
+			System.out.println("There are " + this.listItems.size() + " in the inventory :");
+			for(Item i : listItems) {
+				System.out.println(j + " - " + i);
+				j++;
+			}
+		}
+		else
+			System.out.println("There is no item in the inventory !");
 	}
 
 }

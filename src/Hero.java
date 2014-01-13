@@ -20,11 +20,16 @@ public final class Hero extends Fighter {
 	}
 	
 	public void pickUp(Item item) {
+		//remove Item of the current Room
 		this.inventory.addItem(item);
+	}
+	
+	public void drop(Item item) {
+		//add Item to the current Room
+		this.inventory.removeItem(item);
 	}
 	
 	public void seeInventory() {
 		this.inventory.displayItems();
 	}
-
 }
