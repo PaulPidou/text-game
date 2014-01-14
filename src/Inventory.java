@@ -11,6 +11,14 @@ public class Inventory extends Item {
 		this.listItems = new ArrayList<Item>();
 	}
 	
+	public Item getByName(String name) {
+		for(Item i : listItems) {
+			if(name == i.name)
+				return i;
+		}
+		return null;
+	}
+	
 	public int getSize() {
 		return this.size;
 	}
@@ -34,12 +42,14 @@ public class Inventory extends Item {
 			return true;
 	}
 	
-	public void addItem(Item item) {
+	public boolean addItem(Item item) {
 		if(this.getPlaceLeft() >= item.weight) {
 			listItems.add(item);
+			return true;
 		}
 		else
 			System.out.println("Not enough place in the inventory !");
+			return false;
 	}
 	
 	public void removeItem(Item item) {

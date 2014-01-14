@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 
-public final class Monster extends Fighter {
+public final class Monster extends Fighter implements haveItems {
 
 	protected ArrayList<Item> listItems;
 	
 	Monster(String name, String description, int healthPoints, int strength) {
 		super(name, description, healthPoints, strength);
 		this.listItems = new ArrayList<Item>();
+	}
+	
+	public Item getByName(String name) {
+		for(Item i : listItems) {
+			if(name == i.name)
+				return i;
+		}
+		return null;
 	}
 	
 	public void addItem(Item item) {
@@ -21,7 +29,6 @@ public final class Monster extends Fighter {
 	}
 	
 	public void dropItems() {
-		//add Items to the current Room
 		this.listItems.clear();
 	}
 

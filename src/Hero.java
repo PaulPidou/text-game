@@ -15,17 +15,19 @@ public final class Hero extends Fighter {
 		this.setStrength();
 	}
 	
+	public Inventory getInventory() {
+		return this.inventory;
+	}
+	
 	public void setStrength() {
 		this.strength = mainWeapon.damage;
 	}
 	
-	public void pickUp(Item item) {
-		//remove Item of the current Room
-		this.inventory.addItem(item);
+	public boolean addItem(Item item) {
+		return this.inventory.addItem(item);
 	}
 	
-	public void drop(Item item) {
-		//add Item to the current Room
+	public void removeItem(Item item) {
 		this.inventory.removeItem(item);
 	}
 	

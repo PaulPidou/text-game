@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Room extends Displayable {
+public class Room extends Displayable implements haveItems{
 
 	protected boolean visited;
 	protected int coordX, coordY;
@@ -10,6 +10,14 @@ public class Room extends Displayable {
 	Room(String name, String description) {
 		super(name, description);
 		this.listItems = new ArrayList<Item>();
+	}
+	
+	public Item getByName(String name) {
+		for(Item i : listItems) {
+			if(name == i.name)
+				return i;
+		}
+		return null;	
 	}
 	
 	public void beVisited() {

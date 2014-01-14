@@ -1,5 +1,5 @@
 
-public abstract class Item extends Displayable{
+public abstract class Item extends Displayable {
 
 	protected int weight;
 	
