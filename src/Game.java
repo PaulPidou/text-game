@@ -11,16 +11,16 @@ public abstract class Game {
     	this.hero = new Hero("Paul", " ", 100, 30);
     }
     
-    public Room currentRoom() {
+    public Room getCurrentRoom(Alive alive) {
     	for(Room r : listRooms) {
-    		if(hero.getX() == r.getX() && hero.getY() == r.getY())
+    		if(alive.getX() == r.getX() && alive.getY() == r.getY())
     			return r;
     	}
 		return null; 
     }
     
     public void pickUp(String name) {
-    	Room tempRoom = currentRoom();
+    	Room tempRoom = getCurrentRoom(this.hero);
     	Item tempItem = tempRoom.getByName(name);
     	boolean place = this.hero.addItem(tempItem);
     	if(place)
@@ -28,9 +28,18 @@ public abstract class Game {
     }
     
     public void dropItem(String name) {
-    	Room tempRoom = currentRoom();
+    	Room tempRoom = getCurrentRoom(this.hero);
     	Item tempItem = this.hero.getInventory().getByName(name);
     	tempRoom.addItem(tempItem);
     	this.hero.removeItem(tempItem);
+    }
+    
+    public void monsterDropItems(Monster monster) {
+    	Room tempRoom = getCurrentRoom(monster);
+    	ArrayList<Item> tempItems = monster.getItems();
+    	for(Item i : tempItems) {
+    		tempRoom.addItem(i);
+    	}
+    	monster.removeItems();
     }
 }

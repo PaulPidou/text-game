@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public final class Monster extends Fighter implements haveItems {
+public final class Monster extends Fighter {
 
 	protected ArrayList<Item> listItems;
 	
@@ -9,26 +9,15 @@ public final class Monster extends Fighter implements haveItems {
 		this.listItems = new ArrayList<Item>();
 	}
 	
-	public Item getByName(String name) {
-		for(Item i : listItems) {
-			if(name == i.name)
-				return i;
-		}
-		return null;
+	public ArrayList<Item> getItems() {
+		return listItems;	
 	}
 	
 	public void addItem(Item item) {
-			listItems.add(item);
+		listItems.add(item);
 	}
 	
-	public void receiveDmage(int damage) {
-		super.receiveDmage(damage);
-		if(!this.isAlive()) {
-			this.dropItems();
-		}
-	}
-	
-	public void dropItems() {
+	public void removeItems() {
 		this.listItems.clear();
 	}
 

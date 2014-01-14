@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Room extends Displayable implements haveItems{
+public class Room extends Displayable {
 
 	protected boolean visited;
 	protected int coordX, coordY;
