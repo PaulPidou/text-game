@@ -5,10 +5,14 @@ public abstract class Game {
 	protected Hero hero;
 	protected ArrayList<Room> listRooms;
 	protected Room currentRoom;
+	protected ArtificialIntelligence Ai;
+	protected FightSystem fightSystem;
 	
     public Game() {
     	this.listRooms = new ArrayList<Room>();
     	this.hero = new Hero("Paul", " ", 100, 30);
+    	Ai = new ArtificialIntelligence();
+    	fightSystem = new FightSystem();
     }
     
     public Room getCurrentRoom(Alive alive) {
@@ -41,5 +45,17 @@ public abstract class Game {
     		tempRoom.addItem(i);
     	}
     	monster.removeItems();
+    }
+    
+    public void checkFight() {
+    	Room roomHero = getCurrentRoom(this.hero);
+    	Monster monster = Ai.checkMonsterInRoom(roomHero.getX(), roomHero.getY());
+    	if(monster != null) {
+    		Fighter winner = fightSystem.Fight(this.hero, monster);
+    		if(this.hero == winner)
+    			monsterDropItems(monster);
+    		else
+    			return; //end of the Game
+    	}
     }
 }
