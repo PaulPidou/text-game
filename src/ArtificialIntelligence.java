@@ -23,4 +23,8 @@ public class ArtificialIntelligence {
 		}
 		return null;
 	}
+	
+	public void killMonster(Monster monster) {
+		this.listMonster.remove(monster);
+	}
 }
