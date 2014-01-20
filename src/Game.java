@@ -1,18 +1,23 @@
 import java.util.ArrayList;
 
-
 public abstract class Game {
 	protected Hero hero;
 	protected ArrayList<Room> listRooms;
 	protected Room currentRoom;
+	
 	protected ArtificialIntelligence Ai;
 	protected FightSystem fightSystem;
+	
+	protected GameState state;
 	
     public Game() {
     	this.listRooms = new ArrayList<Room>();
     	this.hero = new Hero("Paul", " ", 100, 30);
+    	
     	Ai = new ArtificialIntelligence();
     	fightSystem = new FightSystem();
+    	
+    	state = GameState.EXPLORATION;
     }
     
     public Room getCurrentRoom(Alive alive) {
