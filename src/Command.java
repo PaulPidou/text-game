@@ -4,7 +4,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Command {
-    protected static String[] validVerbs = new String[]{"go", "map", "quit", "help"};
+    protected static String[] explorationVerbs = new String[]{"go", "map", "quit", "help"};
+    protected static String[] fightVerbs = new String[]{"attack", "take", "quit", "help"};
 
     protected String verb, argument;
 
@@ -40,14 +41,15 @@ public class Command {
      * Show all the possible commands
      */
     public static void printAll() {
-        for (String s : validVerbs) {
+        for (String s : explorationVerbs) {
             System.out.print(" " + s);
         }
         System.out.println();
     }
 
     public static boolean isValidVerb(String verb) {
-        for (String str : validVerbs) {
+    	
+        for (String str : explorationVerbs) {
             if (verb.equals(str)) {
                 return true;
             }
