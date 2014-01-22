@@ -20,6 +20,10 @@ public abstract class Game {
     	state = GameState.EXPLORATION;
     }
     
+    public GameState getState() {
+		return state;
+    }
+    
     public Room getCurrentRoom(Alive alive) {
     	for(Room r : listRooms) {
     		if(alive.getX() == r.getX() && alive.getY() == r.getY())

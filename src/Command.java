@@ -42,10 +42,17 @@ public class Command {
     /**
      * Show all the possible commands
      */
-    public static void printAll() {
-        for (String s : explorationVerbs) {
-            System.out.print(" " + s);
-        }
+    public static void printAll(GameState state) {
+    	if(state == GameState.EXPLORATION) {
+    		for (String s : explorationVerbs) {
+    			System.out.print(" " + s);
+    		}
+    	}
+    	else if(state == GameState.FIGHT) {
+    		for (String s : fightVerbs) {
+    			System.out.print(" " + s);
+    		}
+    	}
         System.out.println();
     }
 
