@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Command {
+	// Possibilities : make Command an abstract class and others Command classes have each a list of valid verbs
+	// Or have a list of valid verbs for each state of the game (exploration, fight ..)
     protected static String[] explorationVerbs = new String[]{"go", "map", "quit", "help"};
     protected static String[] fightVerbs = new String[]{"attack", "take", "quit", "help"};
 
@@ -48,7 +50,6 @@ public class Command {
     }
 
     public static boolean isValidVerb(String verb) {
-    	
         for (String str : explorationVerbs) {
             if (verb.equals(str)) {
                 return true;
