@@ -9,11 +9,11 @@ public class ArtificialIntelligence {
 	}
 	
 	public void initialzeMonsters() {
-		
+		//add Items to the Monsters of the game here
 	}
 	
 	public void updatePosition() {
-		
+		//use the method Move of the class Alive
 	}
 	
 	public Monster checkMonsterInRoom(int x, int y) {
