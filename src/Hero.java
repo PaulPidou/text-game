@@ -1,4 +1,3 @@
-
 public final class Hero extends Fighter {
 
 	protected Weapon mainWeapon;
@@ -33,5 +32,9 @@ public final class Hero extends Fighter {
 	
 	public void seeInventory() {
 		this.inventory.displayItems();
+	}
+	
+	public void chooseWeapom(Weapon weapon) {
+		this.mainWeapon = weapon;
 	}
 }
