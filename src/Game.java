@@ -36,7 +36,7 @@ public abstract class Game {
     	Room tempRoom = getCurrentRoom(this.hero);
     	Item tempItem = tempRoom.getByName(name);
     	boolean place = this.hero.addItem(tempItem);
-    	if(place)
+    	if(place) // If the inventory of the Hero is already full
     		tempRoom.removeItem(tempItem);
     }
     
