@@ -1,4 +1,3 @@
-
 public class Weapon extends Item {
 
 	protected int damage;
@@ -10,5 +9,9 @@ public class Weapon extends Item {
 	
 	public int getDamage() {
 		return this.damage;
+	}
+	
+	public int compareWeapon(Weapon weapon) {
+		return this.damage - weapon.getDamage();
 	}
 }
