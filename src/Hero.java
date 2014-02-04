@@ -34,7 +34,7 @@ public final class Hero extends Fighter {
 		this.inventory.displayItems();
 	}
 	
-	public void chooseWeapom(Weapon weapon) {
+	public void chooseWeapon(Weapon weapon) {
 		this.mainWeapon = weapon;
 	}
 }
