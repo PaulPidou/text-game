@@ -40,6 +40,20 @@ public abstract class Game {
     		tempRoom.removeItem(tempItem);
     }
     
+    public void pickUpWeapon(String name) {
+    	Room tempRoom = getCurrentRoom(this.hero);
+    	Item tempItem = tempRoom.getByName(name);
+    	if(tempItem instanceof Weapon) {
+    		tempWeapon = this.hero.getWeapon();
+    		this.hero.chooseWeapon(tempItem);
+    		tempRoom.removeItem(tempItem);
+    		tempRoon.addItem(tempWeapon);
+    	}
+    	else
+    		System.out.println("It is not a Weapon");
+    		
+    }
+    
     public void dropItem(String name) {
     	Room tempRoom = getCurrentRoom(this.hero);
     	Item tempItem = this.hero.getInventory().getByName(name);
