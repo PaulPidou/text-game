@@ -44,10 +44,10 @@ public abstract class Game {
     	Room tempRoom = getCurrentRoom(this.hero);
     	Item tempItem = tempRoom.getByName(name);
     	if(tempItem instanceof Weapon) {
-    		tempWeapon = this.hero.getWeapon();
-    		this.hero.chooseWeapon(tempItem);
+    		Weapon tempWeapon = this.hero.getWeapon();
+    		this.hero.chooseWeapon((Weapon)tempItem);
     		tempRoom.removeItem(tempItem);
-    		tempRoon.addItem(tempWeapon);
+    		tempRoom.addItem(tempWeapon);
     	}
     	else
     		System.out.println("It is not a Weapon");
