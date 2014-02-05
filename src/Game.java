@@ -24,41 +24,16 @@ public abstract class Game {
 		return state;
     }
     
+    public Hero getHero() {
+    	return this.hero;
+    }
+    
     public Room getCurrentRoom(Alive alive) {
     	for(Room r : listRooms) {
     		if(alive.getX() == r.getX() && alive.getY() == r.getY())
     			return r;
     	}
 		return null; 
-    }
-    
-    public void pickUp(String name) {
-    	Room tempRoom = getCurrentRoom(this.hero);
-    	Item tempItem = tempRoom.getByName(name);
-    	boolean place = this.hero.addItem(tempItem);
-    	if(place) // If the inventory of the Hero is already full
-    		tempRoom.removeItem(tempItem);
-    }
-    
-    public void pickUpWeapon(String name) {
-    	Room tempRoom = getCurrentRoom(this.hero);
-    	Item tempItem = tempRoom.getByName(name);
-    	if(tempItem instanceof Weapon) {
-    		Weapon tempWeapon = this.hero.getWeapon();
-    		this.hero.chooseWeapon((Weapon)tempItem);
-    		tempRoom.removeItem(tempItem);
-    		tempRoom.addItem(tempWeapon);
-    	}
-    	else
-    		System.out.println("It is not a Weapon");
-    		
-    }
-    
-    public void dropItem(String name) {
-    	Room tempRoom = getCurrentRoom(this.hero);
-    	Item tempItem = this.hero.getInventory().getByName(name);
-    	tempRoom.addItem(tempItem);
-    	this.hero.removeItem(tempItem);
     }
     
     public void monsterDropItems(Monster monster) {
