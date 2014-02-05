@@ -20,6 +20,13 @@ public class Room extends Displayable {
 		return null;	
 	}
 	
+	public void displayRoomItems() {
+		System.out.println("This room contains the following items :");
+		for(Item i : listItems) {
+				System.out.println(i);
+		}
+	}
+	
 	public void beVisited() {
 		this.visited = true;
 	}
