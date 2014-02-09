@@ -19,4 +19,8 @@ public class Action {
     	tempRoom.addItem(tempItem);
     	game.getHero().removeItem(tempItem);
     }
+    
+    public static void go(Direction direction, Game game) {
+        
+    }
 }
