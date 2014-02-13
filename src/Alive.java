@@ -7,7 +7,7 @@ public class Alive extends Displayable {
 		this.setXY(0, 0);
 	}
 	
-    public void setXY(int x, int y) 
+    public void setXY(int x, int y) {
         this.coordX = x;
         this.coordY = y;
     }
