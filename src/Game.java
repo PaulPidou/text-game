@@ -49,13 +49,14 @@ public abstract class Game {
     	Room roomHero = getCurrentRoom(this.hero);
     	Monster monster = Ai.checkMonsterInRoom(roomHero.getX(), roomHero.getY());
     	if(monster != null) {
-    		Fighter winner = fightSystem.Fight(this.hero, monster);
+    		state = GameState.FIGHT;
+    		/* Fighter winner = fightSystem.Fight(this.hero, monster);
     		if(this.hero == winner) {
     			monsterDropItems(monster);
     			Ai.killMonster(monster);
     		}
     		else
-    			return; //end of the Game
+    			return; //end of the Game */
     	}
     }
 }
